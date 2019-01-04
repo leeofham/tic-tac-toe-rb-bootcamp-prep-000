@@ -89,7 +89,7 @@ def winner(board)
 end
 
 def play(board)
-  turn(board) until over(board)
+  turn(board) until over?(board)
   if won?(board)
     puts "Congratulations #{board[win_combination.first]} has won!"
   elsif draw?(board)
