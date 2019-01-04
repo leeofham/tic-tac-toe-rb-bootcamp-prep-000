@@ -90,9 +90,9 @@ end
 
 def play(board)
   turn(board) until over(board)
-  if over?(board) && won?(board)
+  if won?(board)
     puts "Congratulations #{board[win_combination.first]} has won!"
   elsif draw?(board)
-    puts "It's a draw!"
+    puts "Cat's draw!"
   end
 end
