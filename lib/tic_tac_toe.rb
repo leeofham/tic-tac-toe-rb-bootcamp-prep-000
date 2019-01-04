@@ -87,3 +87,13 @@ def winner(board)
     board[win_combination.first]
   end
 end
+
+def play(board)
+  while !over(board)
+    turn(board)
+  if over?(board) && won?(board)
+    puts "Congratulations #{board[win_combination.first]} has won!"
+  elsif draw?(board)
+    puts "It's a draw!"
+  end
+end
