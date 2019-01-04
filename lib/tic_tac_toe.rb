@@ -9,6 +9,15 @@ WIN_COMBINATIONS = [
                    [2, 4, 6]
                   ]
 
+def play(board)
+  turn(board) until over?(board)
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
+  end
+end
+
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -47,7 +56,6 @@ end
 
 def turn_count(board)
   counter = 0
-
   board.each do |turn|
     if turn != " "
       counter += 1
@@ -58,7 +66,6 @@ def turn_count(board)
 
 def current_player(board)
   even_or_odd = turn_count(board) % 2
-
   even_or_odd == 0 ? "X" : "O"
 end
 
@@ -85,14 +92,5 @@ end
 def winner(board)
   if win_combination = won?(board)
     board[win_combination.first]
-  end
-end
-
-def play(board)
-  turn(board) until over?(board)
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
-    puts "Cat's Game!"
   end
 end
